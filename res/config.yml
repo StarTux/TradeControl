@@ -1,0 +1,61 @@
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# TradeControl configuration file
+#
+# Sections:
+#   filters: A list of trade filters
+#     buy: A list patterns of items the villager buys. Must be one or two.
+#          Only matching patterns will be processed.
+#       type: The item type as in org.bukkit.Material.
+#       damage: The item damage or data value.
+#       minAmount: The minimum item amount to match.
+#       minAmount: The maximum item amount to match.
+#       amount: The exact amount to match.
+#     sell: The pattern of the item the villager sells.
+#           Details see filters.buy.
+#     action: Either "delete" or "replace".
+#     replacements: A list of replacements by name as specified in trades.
+#                   Only valid if action equals "replace".
+#   trades: Named trade patterns for replacements.
+#           Details see filters.buy.
+#
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+filters:
+- trade:
+    buy:
+    - type: paper
+    sell:
+      type: emerald
+  action: replace
+  replacements: [ manybooks ]
+- trade:
+    buy:
+    - type: written_book
+    sell:
+      type: emerald
+  action: replace
+  replacements: [ manybooks ]
+- trade:
+    buy:
+    - type: wheat
+      maxamount: 23
+    sell:
+      type: emerald
+  action: replace
+  replacements: [ muchwheat ]
+trades:
+  manybooks:
+    buy:
+    - type: book
+      minamount: 32
+      maxamount: 64
+    sell:
+      type: emerald
+      amount: 1
+  muchwheat:
+    buy:
+    - type: wheat
+      minamount: 48
+      maxamount: 64
+    sell:
+      type: emerald
+      amount: 1

@@ -1,0 +1,23 @@
+name: TradeControl
+version: 0.1
+main: com.winthier.tradecontrol.TradeControlPlugin
+author: StarTux
+description: Control villager trades
+commands:
+  tradecontrol:
+    description:
+    permission: tradecontrol.cmd
+    aliases: [ tc ]
+permissions:
+  tradecontrol.*:
+    default: false
+    description: all permissions
+    children:
+      tradecontrol.cmd: true
+      tradecontrol.notify: true
+  tradecontrol.cmd:
+    default: op
+    description: perform commands
+  tradecontrol.notify:
+    default: false
+    description: get notified when a trades are modified
