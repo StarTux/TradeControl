@@ -41,19 +41,6 @@ public class Configuration {
         public Configuration(TradeControlPlugin plugin) {
                 this.plugin = plugin;
                 try {
-                        for (Map.Entry<String, Object> entry : plugin.getConfig().getConfigurationSection("trades").getValues(false).entrySet()) {
-                                Map<String, Object> map = ((ConfigurationSection)entry.getValue()).getValues(false);
-                                TradePattern pattern = getTradePattern(map);
-                                trades.put(entry.getKey(), pattern);
-                        }
-                        // for (Object o : (List<Object>)plugin.getConfig().getList("trades")) {
-                        //         Map<String, Object> map = (Map<String, Object>)o;
-                        //         TradePattern pattern = getTradePattern(map);
-                        //         trades.put((String)map.get("name"), pattern);
-                        // }
-                        for (Object o : (List<Object>)plugin.getConfig().getList("filters")) {
-                                filters.add(getTradeFilter((Map<String, Object>)o));
-                        }
                         // write default config to disk once
                         File file = plugin.getDataFolder();
                         if (!file.exists()) file.mkdir();
@@ -68,6 +55,15 @@ public class Configuration {
                                 }
                                 out.close();
                                 in.close();
+                        }
+                        plugin.reloadConfig();
+                        for (Map.Entry<String, Object> entry : plugin.getConfig().getConfigurationSection("trades").getValues(false).entrySet()) {
+                                Map<String, Object> map = ((ConfigurationSection)entry.getValue()).getValues(false);
+                                TradePattern pattern = getTradePattern(map);
+                                trades.put(entry.getKey(), pattern);
+                        }
+                        for (Object o : (List<Object>)plugin.getConfig().getList("filters")) {
+                                filters.add(getTradeFilter((Map<String, Object>)o));
                         }
                 } catch (Exception e) {
                         e.printStackTrace();
