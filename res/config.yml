@@ -46,7 +46,7 @@ trades:
   manybooks:
     buy:
     - type: book
-      minamount: 32
+      minamount: 16
       maxamount: 64
     sell:
       type: emerald
@@ -54,7 +54,7 @@ trades:
   muchwheat:
     buy:
     - type: wheat
-      minamount: 48
+      minamount: 24
       maxamount: 64
     sell:
       type: emerald
