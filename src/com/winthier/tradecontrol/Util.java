@@ -21,13 +21,13 @@ package com.winthier.tradecontrol;
 
 import java.util.ArrayList;
 import java.util.List;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.EntityVillager;
-import net.minecraft.server.MerchantRecipe;
-import net.minecraft.server.MerchantRecipeList;
-import org.bukkit.craftbukkit.entity.CraftHumanEntity;
-import org.bukkit.craftbukkit.entity.CraftVillager;
-import org.bukkit.craftbukkit.inventory.CraftItemStack;
+import net.minecraft.server.v1_4_5.EntityHuman;
+import net.minecraft.server.v1_4_5.EntityVillager;
+import net.minecraft.server.v1_4_5.MerchantRecipe;
+import net.minecraft.server.v1_4_5.MerchantRecipeList;
+import org.bukkit.craftbukkit.v1_4_5.entity.CraftHumanEntity;
+import org.bukkit.craftbukkit.v1_4_5.entity.CraftVillager;
+import org.bukkit.craftbukkit.v1_4_5.inventory.CraftItemStack;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Villager;
 import org.bukkit.inventory.ItemStack;
@@ -59,8 +59,8 @@ public class Util {
                 return ((CraftVillager)villager).getHandle().getOffers(human);
         }
 
-        public static String printItemStack(net.minecraft.server.ItemStack i) {
-                return printItemStack(new CraftItemStack(i));
+        public static String printItemStack(net.minecraft.server.v1_4_5.ItemStack i) {
+                return printItemStack(CraftItemStack.asCraftMirror(i));
         }
 
         public static String printItemStack(ItemStack i) {

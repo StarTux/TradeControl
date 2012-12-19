@@ -20,8 +20,8 @@
 package com.winthier.tradecontrol;
 
 import org.bukkit.inventory.ItemStack;
-import net.minecraft.server.MerchantRecipe;
-import org.bukkit.craftbukkit.inventory.CraftItemStack;
+import net.minecraft.server.v1_4_5.MerchantRecipe;
+import org.bukkit.craftbukkit.v1_4_5.inventory.CraftItemStack;
 
 public class FakeTrade extends AbstractTrade {
         private ItemStack buyItem1, buyItem2, sellItem;
@@ -35,9 +35,9 @@ public class FakeTrade extends AbstractTrade {
         @Override
         public MerchantRecipe getRecipe() {
                 if (buyItem2 == null) {
-                        return new MerchantRecipe(new CraftItemStack(buyItem1).getHandle(), new CraftItemStack(sellItem).getHandle());
+                        return new MerchantRecipe(CraftItemStack.asNMSCopy(buyItem1), CraftItemStack.asNMSCopy(sellItem));
                 } else {
-                        return new MerchantRecipe(new CraftItemStack(buyItem1).getHandle(), new CraftItemStack(buyItem2).getHandle(), new CraftItemStack(sellItem).getHandle());
+                        return new MerchantRecipe(CraftItemStack.asNMSCopy(buyItem1), CraftItemStack.asNMSCopy(buyItem2), CraftItemStack.asNMSCopy(sellItem));
                 }
         }
 }

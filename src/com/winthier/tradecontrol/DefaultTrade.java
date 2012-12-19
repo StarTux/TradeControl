@@ -19,9 +19,9 @@
 
 package com.winthier.tradecontrol;
 
-import net.minecraft.server.MerchantRecipe;
-import net.minecraft.server.MerchantRecipeList;
-import org.bukkit.craftbukkit.inventory.CraftItemStack;
+import net.minecraft.server.v1_4_5.MerchantRecipe;
+import net.minecraft.server.v1_4_5.MerchantRecipeList;
+import org.bukkit.craftbukkit.v1_4_5.inventory.CraftItemStack;
 import org.bukkit.inventory.ItemStack;
 
 public class DefaultTrade extends AbstractTrade {

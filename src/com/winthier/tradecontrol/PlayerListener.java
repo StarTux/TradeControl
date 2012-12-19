@@ -19,8 +19,8 @@
 
 package com.winthier.tradecontrol;
 
-import net.minecraft.server.MerchantRecipeList;
-import net.minecraft.server.MerchantRecipe;
+import net.minecraft.server.v1_4_5.MerchantRecipeList;
+import net.minecraft.server.v1_4_5.MerchantRecipe;
 import org.bukkit.entity.Villager;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

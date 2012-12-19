@@ -19,8 +19,8 @@
 
 package com.winthier.tradecontrol;
 
-import net.minecraft.server.MerchantRecipe;
-import org.bukkit.craftbukkit.inventory.CraftItemStack;
+import net.minecraft.server.v1_4_5.MerchantRecipe;
+import org.bukkit.craftbukkit.v1_4_5.inventory.CraftItemStack;
 import org.bukkit.inventory.ItemStack;
 
 public abstract class AbstractTrade implements Trade {
@@ -29,14 +29,14 @@ public abstract class AbstractTrade implements Trade {
         @Override
         public ItemStack[] getBuyItems() {
                 ItemStack[] result = new ItemStack[getRecipe().hasSecondItem() ? 2 : 1];
-                result[0] = new CraftItemStack(getRecipe().getBuyItem1());
-                if (result.length > 1) result[1] = new CraftItemStack(getRecipe().getBuyItem2());
+                result[0] = CraftItemStack.asCraftMirror(getRecipe().getBuyItem1());
+                if (result.length > 1) result[1] = CraftItemStack.asCraftMirror(getRecipe().getBuyItem2());
                 return result;
         }
 
         @Override
         public ItemStack getSellItem() {
-                return new CraftItemStack(getRecipe().getBuyItem3());
+                return CraftItemStack.asCraftMirror(getRecipe().getBuyItem3());
         }
 
         @Override
@@ -50,11 +50,11 @@ public abstract class AbstractTrade implements Trade {
 
         @Override
         public String toString() {
-                String result = Util.printItemStack(new CraftItemStack(getRecipe().getBuyItem1()));
+                String result = Util.printItemStack(CraftItemStack.asCraftMirror(getRecipe().getBuyItem1()));
                 if (getRecipe().hasSecondItem()) {
-                        result += " + " + Util.printItemStack(new CraftItemStack(getRecipe().getBuyItem2()));
+                        result += " + " + Util.printItemStack(CraftItemStack.asCraftMirror(getRecipe().getBuyItem2()));
                 }
-                result += " -> " + Util.printItemStack(new CraftItemStack(getRecipe().getBuyItem3()));
+                result += " -> " + Util.printItemStack(CraftItemStack.asCraftMirror(getRecipe().getBuyItem3()));
                 return result;
         }
 }

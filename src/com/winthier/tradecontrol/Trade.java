@@ -20,7 +20,7 @@
 package com.winthier.tradecontrol;
 
 import org.bukkit.inventory.ItemStack;
-import net.minecraft.server.MerchantRecipe;
+import net.minecraft.server.v1_4_5.MerchantRecipe;
 
 public interface Trade {
         public ItemStack[] getBuyItems();
