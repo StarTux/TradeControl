@@ -1,3 +1,7 @@
+0.2
+
+* Adjust for CraftBukkit 1.4.5-RB1.0 and changes in CraftItemStack and the new NBT and OBC safeguard
+
 0.1
 
 * Initial release
